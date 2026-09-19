@@ -65,9 +65,147 @@ ol {
 
 /* ---------- Layout ---------- */
 .page {
+  position: relative;
   max-width: var(--measure);
   margin: 0 auto;
   padding: 4rem 1.25rem 3rem;
+}
+
+.page[data-outage='active']::before,
+.page[data-outage='active']::after {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  content: '';
+}
+
+.page[data-outage='active']::before {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgb(255 92 92 / 0.04) 0,
+    rgb(255 92 92 / 0.04) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  animation: scanline 0.18s steps(2, end) infinite;
+}
+
+.page[data-outage='active']::after {
+  border: 1px solid rgb(255 92 92 / 0.28);
+  box-shadow: inset 0 0 5rem rgb(255 92 92 / 0.08);
+  animation: outage-flicker 1.8s steps(3, end) infinite;
+}
+
+.page[data-outage='active'] .masthead,
+.page[data-outage='active'] .section,
+.page[data-outage='active'] .footer {
+  animation: signal-jitter 2.6s steps(2, end) infinite;
+}
+
+.page[data-outage='active'] .banner {
+  animation: banner-flicker 0.9s steps(2, end) infinite;
+}
+
+.page[data-outage='active'] .handle,
+.page[data-outage='active'] .banner-headline {
+  transform-origin: 0 0;
+  animation: hinge-fall 1.1s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.page[data-outage='active'] .banner-headline {
+  animation-delay: 0.45s;
+}
+
+.falling-letter[data-active='true'] {
+  display: inline-block;
+  animation: letter-drop 0.9s cubic-bezier(0.55, 0.06, 0.68, 0.19) both;
+}
+
+@keyframes scanline {
+  from {
+    transform: translateY(-4px);
+  }
+  to {
+    transform: translateY(4px);
+  }
+}
+
+@keyframes outage-flicker {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  48% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes signal-jitter {
+  0%,
+  92%,
+  100% {
+    transform: translateX(0);
+  }
+  94% {
+    transform: translateX(2px);
+  }
+  96% {
+    transform: translateX(-1px);
+  }
+}
+
+@keyframes banner-flicker {
+  0%,
+  100% {
+    filter: saturate(1);
+  }
+  50% {
+    filter: saturate(1.5) brightness(1.12);
+  }
+}
+
+@keyframes hinge-fall {
+  0% {
+    opacity: 0.25;
+    transform: rotate(0deg) translateY(0);
+  }
+  35% {
+    opacity: 1;
+    transform: rotate(3deg) translateY(0.15rem);
+  }
+  100% {
+    opacity: 0.7;
+    transform: rotate(18deg) translateY(3.5rem);
+  }
+}
+
+@keyframes letter-drop {
+  0%,
+  34% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(4rem) rotate(24deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page[data-outage='active']::before,
+  .page[data-outage='active']::after,
+  .page[data-outage='active'] .masthead,
+  .page[data-outage='active'] .section,
+  .page[data-outage='active'] .footer,
+  .page[data-outage='active'] .banner,
+  .page[data-outage='active'] .handle,
+  .page[data-outage='active'] .banner-headline,
+  .falling-letter[data-active='true'] {
+    animation: none;
+  }
 }
 
 .masthead {

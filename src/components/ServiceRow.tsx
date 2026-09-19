@@ -1,19 +1,38 @@
-import { useId, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import type { Service } from '../types';
+import { FallingText } from './FallingText';
 import { StatusPill } from './StatusPill';
 import { UptimeBar } from './UptimeBar';
 
 interface Props {
   service: Service;
   today: string;
+  outageAnimationKey: number;
+  outageActive: boolean;
 }
 
-export function ServiceRow({ service, today }: Props) {
+export function ServiceRow({ service, today, outageAnimationKey, outageActive }: Props) {
   const [open, setOpen] = useState(false);
+  const [outageProgress, setOutageProgress] = useState<number | null>(null);
   const panelId = useId();
   const { name, status, blurb, stack, repo, live, screenshot } = service;
 
   const hasDetails = Boolean(stack?.length || repo || live || screenshot);
+
+  useEffect(() => {
+    if (outageAnimationKey === 0 || status !== 'outage') {
+      return;
+    }
+
+    let progress = 0;
+    const timer = window.setInterval(() => {
+      progress += 1;
+      setOutageProgress(progress);
+      if (progress === 90) window.clearInterval(timer);
+    }, 40);
+
+    return () => window.clearInterval(timer);
+  }, [outageAnimationKey, status]);
 
   return (
     <li className="service">
@@ -31,8 +50,10 @@ export function ServiceRow({ service, today }: Props) {
       </button>
 
       <div className="service-summary">
-        <p className="service-blurb">{blurb}</p>
-        <UptimeBar id={service.id} status={status} today={today} />
+        <p className="service-blurb">
+          <FallingText text={blurb} active={outageActive} />
+        </p>
+        <UptimeBar id={service.id} status={status} today={today} outageProgress={outageProgress} />
       </div>
 
       <div className="panel" id={panelId} data-open={open}>

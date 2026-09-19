@@ -56,16 +56,20 @@ interface Props {
   status: ServiceStatus;
   /** ISO date treated as "today" (the last tick). */
   today: string;
+  outageProgress: number | null;
 }
 
 /** Decorative: the history is generated, not measured. */
-export function UptimeBar({ id, status, today }: Props) {
+export function UptimeBar({ id, status, today, outageProgress }: Props) {
   const { ticks, uptime, incidentDays } = useMemo(() => {
     const ticks = buildTicks(id, status);
+    if (status === 'outage' && outageProgress !== null) {
+      for (let i = 0; i < outageProgress; i++) ticks[DAYS - 1 - i] = 'down';
+    }
     const incidentDays = ticks.filter((t) => t === 'degraded' || t === 'down').length;
     const uptime = (((DAYS - incidentDays) / DAYS) * 100).toFixed(1);
     return { ticks, uptime, incidentDays };
-  }, [id, status]);
+  }, [id, status, outageProgress]);
 
   const end = parseDay(today);
 
