@@ -20,6 +20,7 @@ export const services: Service[] = [
   {
     id: 'kraken',
     name: 'Kraken Hosting',
+    created: '2023-01-08',
     status: 'operational',
     blurb: 'Game server hosting. I used to run the infrastructure, DevOps, and development mostly myself. Now it\'s co-run by a couple friends and I.',
     live: 'https://krakenhosting.net',
@@ -28,6 +29,7 @@ export const services: Service[] = [
   {
     id: 'htl',
     name: 'Heed the light',
+    created: '2026-08-02',
     status: 'operational',
     blurb: 'A minecraft mod I made for a friend that damages you while in the darkness for too long, meant for his horror modpack streams.',
     repo: 'https://github.com/ras-rap/heed-the-light',
@@ -37,6 +39,7 @@ export const services: Service[] = [
   {
     id: 'logforge',
     name: 'LogForge',
+    created: '2026-06-29',
     status: 'maintenance',
     blurb: 'A web app that reads Minecraft logs and explains what went wrong.',
     repo: 'https://github.com/ras-rap/logforge',
@@ -44,6 +47,7 @@ export const services: Service[] = [
    {
     id: 'dms',
     name: 'DM Screen',
+    created: '2024-11-13',
     status: 'operational',
     blurb: 'A website for D&D DMs to manage rolls, players, enemies, notes, etc. (This was my first web project)',
     stack: ['React', 'TypeScript', 'TailwindCSS'],
@@ -54,6 +58,7 @@ export const services: Service[] = [
   {
     id: 'keyboard-pcb',
     name: 'Custom 80% keyboard',
+    created: '2026-08-17',
     status: 'maintenance',
     blurb: 'A keyboard PCB I designed from scratch in KiCad for the Hack Club Keeb program (I never shipped it :sad:).',
     stack: ['KiCad'],
@@ -63,6 +68,7 @@ export const services: Service[] = [
   {
     id: 'ignis',
     name: 'Ignis',
+    created: '2026-08-10',
     status: 'maintenance',
     blurb: 'A voice assistant that runs entirely on your own machine.',
     stack: ['Rust', 'Tauri'],
@@ -70,6 +76,7 @@ export const services: Service[] = [
   {
     id: 'bolt',
     name: 'Bolt',
+    created: '2024-07-14',
     status: 'outage',
     blurb: 'A mod I made for the game "Screw Drivers" dedicated server to add actual admin features.',
     stack: ['C#', 'Bepinex'],

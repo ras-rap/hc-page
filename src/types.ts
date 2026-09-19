@@ -3,6 +3,8 @@ export type ServiceStatus = 'operational' | 'degraded' | 'maintenance' | 'outage
 export interface Service {
   id: string;
   name: string;
+  /** ISO date when the project was first created. */
+  created: string;
   status: ServiceStatus;
   /** One plain sentence about what it is. */
   blurb: string;

@@ -357,6 +357,12 @@ ol {
   font-size: 0.9375rem;
 }
 
+.service-created {
+  margin: -0.25rem 0 0.875rem;
+  color: var(--muted);
+  font: 400 0.75rem/1.4 var(--font-mono);
+}
+
 .chevron {
   width: 0.5rem;
   height: 0.5rem;

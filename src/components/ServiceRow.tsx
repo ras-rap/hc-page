@@ -1,5 +1,6 @@
 import { useEffect, useId, useState } from 'react';
 import type { Service } from '../types';
+import { formatDay, parseDay } from '../lib/format';
 import { FallingText } from './FallingText';
 import { StatusPill } from './StatusPill';
 import { UptimeBar } from './UptimeBar';
@@ -15,7 +16,7 @@ export function ServiceRow({ service, today, outageAnimationKey, outageActive }:
   const [open, setOpen] = useState(false);
   const [outageProgress, setOutageProgress] = useState<number | null>(null);
   const panelId = useId();
-  const { name, status, blurb, stack, repo, live, screenshot } = service;
+  const { name, created, status, blurb, stack, repo, live, screenshot } = service;
 
   const hasDetails = Boolean(stack?.length || repo || live || screenshot);
 
@@ -53,6 +54,7 @@ export function ServiceRow({ service, today, outageAnimationKey, outageActive }:
         <p className="service-blurb">
           <FallingText text={blurb} active={outageActive} />
         </p>
+        <p className="service-created">Created {formatDay(parseDay(created))}</p>
         <UptimeBar id={service.id} status={status} today={today} outageProgress={outageProgress} />
       </div>
 
