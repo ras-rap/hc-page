@@ -130,6 +130,11 @@ export default function App() {
             Source on GitHub
           </a>
           .
+          Check out my main site{' '}
+          <a href='https://ras-rap.click' target="_blank" rel="noreferrer">
+            here
+          </a>
+          .
         </p>
       </footer>
 
