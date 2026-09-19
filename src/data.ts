@@ -23,6 +23,7 @@ export const services: Service[] = [
     status: 'operational',
     blurb: 'Game server hosting. I used to run the infrastructure, DevOps, and development mostly myself. Now it\'s co-run by a couple friends and I.',
     live: 'https://krakenhosting.net',
+    screenshot: 'screenshots/kh.png',
   },
   {
     id: 'htl',
@@ -31,6 +32,7 @@ export const services: Service[] = [
     blurb: 'A minecraft mod I made for a friend that damages you while in the darkness for too long, meant for his horror modpack streams.',
     repo: 'https://github.com/ras-rap/heed-the-light',
     live: 'https://modrinth.com/mod/htl',
+    screenshot: 'screenshots/htl.png',
   },
   {
     id: 'logforge',
@@ -47,7 +49,7 @@ export const services: Service[] = [
     stack: ['React', 'TypeScript', 'TailwindCSS'],
     repo: 'https://github.com/ras-rap/dm-screen',
     live: 'https://dms.ras-rap.click',
-    // screenshot: 'screenshots/dms.png',
+    screenshot: 'screenshots/dms.png',
   },
   {
     id: 'keyboard-pcb',
