@@ -537,6 +537,92 @@ ol {
   font-size: 0.875rem;
 }
 
+/* ---------- Hidden terminal ---------- */
+.terminal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgb(5 8 11 / 0.72);
+}
+
+.terminal {
+  width: min(44rem, 100%);
+  max-height: min(34rem, 100%);
+  overflow: hidden;
+  border: 1px solid var(--info);
+  border-radius: var(--radius);
+  background: #080c10;
+  box-shadow: 0 1rem 4rem rgb(0 0 0 / 0.45), 0 0 2rem rgb(90 169 255 / 0.12);
+  color: var(--text);
+  font: 0.875rem/1.6 var(--font-mono);
+}
+
+.terminal-chrome {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--muted);
+}
+
+.terminal-close {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+}
+
+.terminal-close:hover {
+  color: var(--text);
+}
+
+.terminal-output {
+  max-height: 25rem;
+  overflow-y: auto;
+  padding: 1rem 1rem 0.5rem;
+  white-space: pre-wrap;
+}
+
+.neofetch-output {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.neofetch-output img {
+  width: 5.5rem;
+  height: 7.5rem;
+  flex: none;
+  object-fit: contain;
+}
+
+.terminal-form {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem 1rem;
+}
+
+.terminal-form label {
+  color: var(--up);
+  white-space: nowrap;
+}
+
+.terminal-form input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+
 /* ---------- Small screens ---------- */
 @media (max-width: 32rem) {
   .page {
