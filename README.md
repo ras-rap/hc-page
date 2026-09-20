@@ -24,16 +24,13 @@ The site is a static single-page app built with React, TypeScript, and Vite, run
 ### Screenshots
 
 **Main page**
-
-![Main status page](docs/screenshots/home.png)
+<img width="601" height="1042" alt="image" src="https://github.com/user-attachments/assets/7cf61ad8-f215-48e1-bb79-d5777d74046e" />
 
 **Konami code effect**
-
-![Konami code screenshot](docs/screenshots/konami.png)
+<img width="1862" height="1036" alt="image" src="https://github.com/user-attachments/assets/22b4b15c-aea0-4614-bcda-08948a5b7761" />
 
 **Secret terminal**
-
-![Terminal screenshot](docs/screenshots/terminal.png)
+<img width="742" height="395" alt="image" src="https://github.com/user-attachments/assets/cb94b82a-5fb9-4dd5-8755-26521be05dcd" />
 
 ## Getting Started
 
